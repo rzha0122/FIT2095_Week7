@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+        <link rel="stylesheet" href='styles.css'/>
+    </head>
+    <header>
+        <a type="button" class="btn btn-primary" href="http://localhost:8080/">Return to home</a>
+    </header>
+
+    <div class="jumbotron text-center">
+        <h2>Add a parcel to the system</h2>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <table class="table table-primary">
+                    <form action="/addparcel" method="POST">
+                    <tr>
+                        <th>Sender</th>
+                        <td>
+                            <input type="text" name="sender"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>
+                            <input type="text" name="address"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Weight</th>
+                        <td>
+                            <input type="number" name="weight" step="0.5"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Is the parcel fragile?</th>
+                        <td>
+                            <select name="fragile">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Type of shipment</th>
+                        <td>
+                            <select name="type">
+                                <option value="Regular">Regular</option>
+                                <option value="Express">Express Shipping</option>
+                                <option value="Express tracked">Express tracked</option>
+                                <option value="Large items">Large items</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Cost of Shipping</th>
+                        <td>
+                            <input type="number" name="cost" min="0"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input type="submit" value="Submit"></a>
+                        </th>
+                    </tr>
+                    </form>
+                </table>
+            </div>
+        </div>
+    </div>
+</html>

@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+        <link rel="stylesheet" href='styles.css'>
+    </head>
+
+    <header>
+        <a type="button" class="btn btn-primary" href="http://localhost:8080/">Return to home</a>
+    </header>
+
+    <div class="jumbotron text-center">
+        <br><form action="/getbysender" method="POST">
+            <label for="sender">Search by Sender</label><br>
+            <input type="text" id="sender" name="sender">
+            <input type="submit" value="Submit">
+        </form>
+        
+        <p>Sort by a weight range</p>
+
+        <form action="/getbyweight" method="POST">
+            <label for="weightOne">Weight one</label>
+            <input type="number" id="weightOne" name="weightOne"><br>
+
+            <label for="weightTwo">Weight two</label>
+            <input type="number" id="weightTwo" name="weightTwo"><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <table class="table table-primary">
+                <tr>
+                    <th>Parcel ID</th>
+                    <th>Sender</th>
+                    <th>Address</th>
+                    <th>Weight</th>
+                    <th>Fragile?</th>
+                    <th>Shipping type</th>
+                    <th>Cost</th>
+                </tr>
+                <% for (let i = 0; i < postDb.length; i++) { %>
+                    <tr>
+                        <td><%= postDb[i]._id %></td>
+                        <td><%= postDb[i].sender %></td>
+                        <td><%= postDb[i].address %></td>
+                        <td><%= postDb[i].weight %></td>
+                        <td><%= postDb[i].fragile %></td>
+                        <td><%= postDb[i].shipType %></td>
+                        <td><%= postDb[i].cost %></td>
+                    </tr>
+                    <% } %>
+            </table>
+        </div>
+    </div>
+</html>

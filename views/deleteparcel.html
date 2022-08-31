@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+        <link rel="stylesheet" href='styles.css'>
+    </head>
+
+    <header>
+        <a type="button" class="btn btn-primary" href="http://localhost:8080/">Return to home</a>
+    </header>
+
+<body>
+    <div class="jumbotron text-center">
+        <h2>Delete a parcel</h2>
+        <form action="/deleteparcel" method="POST">
+            <label for="senderId">Sender ID</label><br>
+            <input type="text" id="senderId" name="id"><br>
+
+            <p>OR</p>
+
+            <label for="senderName">Sender name:</label><br>
+            <input type="text" id="senderName" name="sender"><br>
+
+            <p>AND</p>
+
+            <label for="weight">Weight of parcel:</label><br>
+            <input type="number" id="weight" name="weight" step="0.5"><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+
+</html>

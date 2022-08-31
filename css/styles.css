@@ -1,0 +1,23 @@
+
+
+body {
+    background: url(background2.jpg) no-repeat center center fixed;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: arial, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: center;
+    width: 40%;
+}
+
+td, th {
+    border: 2px solid #000000;
+    text-align: left;
+    padding: 8px;
+}
