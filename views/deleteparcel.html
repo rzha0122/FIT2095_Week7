@@ -23,7 +23,20 @@
             <p>AND</p>
 
             <label for="weight">Weight of parcel:</label><br>
-            <input type="number" id="weight" name="weight" step="0.5"><br>
+            <input type="number" id="weight" name="weight" step="0.5">
+
+            <p>OR</p>
+
+            <select name="deletion">
+                <option value="weight">Delete by Weight</option>
+                <option value="address">Delete by Address</option>
+                <option value="fragile">Delete by Fragile</option>
+            </select>
+            <br>
+            
+            <label for="deletionValue">Input value to delete (yes/no for fragile):</label><br>
+            <input type="text" id="deletionValue" name="deletionValue">
+            <br>
 
             <input type="submit" value="Submit">
         </form>

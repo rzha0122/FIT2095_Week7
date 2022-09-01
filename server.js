@@ -102,6 +102,8 @@ app.post('/deleteparcel', function(req, res) {
     let sender = req.body.sender;
     let weight = parseFloat(req.body.weight);
 
+    let deletion = req.body.deletion;
+
     if (id.length > 0) {
         let filter = { _id: mongoose.Types.ObjectId(id) };
         Parcel.deleteOne(filter, function (err, doc) {
@@ -112,7 +114,31 @@ app.post('/deleteparcel', function(req, res) {
     else if (sender.length > 0 && weight > 0) {
         let filter = { sender: sender, weight: weight };
         Parcel.deleteMany(filter, function (err, docs){
-            console.log("Successfully deleted (many)")
+            console.log("Successfully deleted (many)");
+        });
+        res.redirect("/getparcels");
+    }
+    else if (deletion == 'weight') {
+        let weight = parseFloat(req.body.deletionValue);
+        let filter = { weight: weight };
+        Parcel.deleteMany(filter, function (err, docs) {
+            console.log("Successfullt deleted many");
+        });
+        res.redirect("/getparcels");
+    }
+    else if (deletion == 'address') {
+        let address = req.body.deletionValue;
+        let filter = { address: address };
+        Parcel.deleteMany(filter, function (err, docs) {
+            console.log("Successfully deleted many");
+        });
+        res.redirect("/getparcels")
+    }
+    else if (deletion =='fragile') {
+        let fragile = (req.body.deletionValue == 'yes');
+        let filter = { fragile: fragile };
+        Parcel.deleteMany(filter, function (err, docs) {
+            console.log("Successfully deleted many");
         });
         res.redirect("/getparcels");
     }
