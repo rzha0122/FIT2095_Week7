@@ -16,7 +16,7 @@ const senders = require('./routers/sender');
 const parcels = require('./routers/parcel');
 
 // const url = 'mongodb://localhost:27017/POMS'
-const url = 'mongodb://10.128.0.2:27017/POMS'
+const url = 'mongodb://10.128.0.2:27017'
 mongoose.connect(url, function (err) {
     if (err) {
         console.log('Error in Mongoose connection');
