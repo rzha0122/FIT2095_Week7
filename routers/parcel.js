@@ -24,6 +24,22 @@ module.exports = {
 
             res.json(parcel);
         });
+    },
+
+    deleteById: function (req, res) {
+        Parcel.findByIdAndDelete(req.body._id, function (err, parcel) {
+            if (err) return res.status(400).json(err);
+            if (!parcel) return res.status(404).json();
+        })
+    },
+
+    updateAndIncrement: function (req, res) {
+        Parcel.findByIdAndUpdate(req.body._id, {$inc: { cost: 10 } }, function (err, parcel) {
+            if (err) return res.status(400).json(err);
+            if (!parcel) return res.status(404).json();
+
+            res.json(parcel);
+        })
     }
 
 

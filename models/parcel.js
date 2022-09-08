@@ -17,6 +17,15 @@ const parcelSchema = mongoose.Schema({
         }
     },
     fragile: { type: Boolean, required: true },
+    cost: { type: Number,
+        required: true,
+        validate: {
+            validator: function (costValue) {
+                return costValue > 0;
+            },
+            message: 'Cost should be greater than 0'
+        }
+    },
 
 });
 

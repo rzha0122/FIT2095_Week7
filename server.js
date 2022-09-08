@@ -15,8 +15,8 @@ const mongoose = require('mongoose');
 const senders = require('./routers/sender');
 const parcels = require('./routers/parcel');
 
-// const url = 'mongodb://localhost:27017/POMS'
-const url = 'mongodb://localhost:27017'
+const url = 'mongodb://localhost:27017/POMS'
+//const url = 'mongodb://localhost:27017'
 mongoose.connect(url, function (err) {
     if (err) {
         console.log('Error in Mongoose connection');
@@ -37,3 +37,5 @@ app.put('/sender/parcel', senders.addParcel);
 // PARCEL
 app.get('/parcel', parcels.getByAddress);
 app.put('/parcel', parcels.updateOne);
+app.delete('/parcel', parcels.deleteById);
+app.put('/parcel/updateAndIncrement', parcels.updateAndIncrement);
