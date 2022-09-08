@@ -30,6 +30,8 @@ module.exports = {
         Parcel.findByIdAndDelete(req.body._id, function (err, parcel) {
             if (err) return res.status(400).json(err);
             if (!parcel) return res.status(404).json();
+
+            res.json(parcel);
         })
     },
 
